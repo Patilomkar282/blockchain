@@ -8,7 +8,7 @@ const ChartComponent = ({ symbol, interval }) => {
   const [chartData, setChartData] = useState([]);
   const ws = useRef(null);
 
-  // Fetch data from localStorage if available
+  
   useEffect(() => {
     const storedData = localStorage.getItem(`${symbol}_${interval}`);
     if (storedData) {
@@ -16,7 +16,7 @@ const ChartComponent = ({ symbol, interval }) => {
     }
   }, [symbol, interval]);
 
-  // WebSocket connection
+ 
   useEffect(() => {
     const url = `wss://stream.binance.com:9443/ws/${symbol}@kline_${interval}`;
     ws.current = new WebSocket(url);
@@ -30,13 +30,13 @@ const ChartComponent = ({ symbol, interval }) => {
           x: new Date(candlestick.t),
           y: [candlestick.o, candlestick.h, candlestick.l, candlestick.c]
         }];
-        // Save to localStorage for persistence
+        
         localStorage.setItem(`${symbol}_${interval}`, JSON.stringify(newData));
         return newData;
       });
     };
 
-    return () => ws.current.close(); // Cleanup on component unmount or symbol change
+    return () => ws.current.close(); 
   }, [symbol, interval]);
 
   // Chart.js data format
@@ -45,7 +45,7 @@ const ChartComponent = ({ symbol, interval }) => {
     datasets: [
       {
         label: `${symbol.toUpperCase()} Price`,
-        data: chartData.map((data) => data.y[3]), // Closing price
+        data: chartData.map((data) => data.y[3]), 
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderWidth: 1,
