@@ -1,0 +1,47 @@
+/* Style for the container that holds the chart */
+.chart-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    min-width: 320px;
+  }
+  
+  /* Style for the chart itself */
+  .chart-container canvas {
+    display: block;
+    max-height: 400px;
+    width: 100%;
+  }
+  
+  /* Optional style for headings or labels */
+  .chart-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .controls {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .controls label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .controls select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+  }
+  
